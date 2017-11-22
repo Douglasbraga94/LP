@@ -22,11 +22,13 @@ int main(void){
         exit(0);
     }*/
 
+    /*NUM FIXO PARA TESTAR O TEMPO DE EXECUÇÃO PELO PROPRIO WINDOWS, POIS NÃO ACHEI UMA FUNÇÃO QUE 
+    PEGUE O TEMPO EM MILISSEGUNDOS*/
     num=1000;
 
     p=(int *)malloc(num*sizeof(int));
     if(!p){
-        printf("\nErro na aloca��o de memoria.\n");
+        printf("\nErro na alocação de memoria.\n");
         system("pause");
         exit(0);
     }
