@@ -1,12 +1,13 @@
 #include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
 
 int **alocaMemoria(int linha, int coluna);
 int preencheMatriz(int linha, int coluna, int **matriz);
 int **multiplicaMatriz(int linha1, int linha2, int coluna1, int coluna2, int **matriz1, int **matriz2, int **matriz3);
-//int escreve(int lin, int col, int **m);
 int **liberaMemoria(int linha, int **matriz);
 
-//////////////////////////////////////* Função Principal */////////////////////////////////////////////////////////
+//////////////////////////////////////* FunÃ§Ã£o Principal */////////////////////////////////////////////////////////
 
 int main (){
     int **matriz1,**matriz2,**matriz3;
@@ -26,15 +27,8 @@ int main (){
     /*Multiplica Matrizes*/
     matriz3 = multiplicaMatriz(linha1,linha2,coluna1,coluna2,matriz1,matriz2,matriz3);
 
-    /*escreve matrizes.*/
-    printf("\n\nMatriz 1:\n");
-    //escreve(l1,c1,m1);
-    printf("\n\nMatriz 2:\n");
-    //escreve(l2,c2,m2);
-    printf("\n\nMatriz 3 (M1*M2):\n");
-    //escreve(l1,c2,m3);
 
-/*libera memória*/
+/*libera memÃ³ria*/
 
 matriz1 = liberaMemoria(linha1,matriz1);
 
@@ -47,7 +41,7 @@ return 0;
 }
 
 
-/*Alocação*/
+/*AlocaÃ§Ã£o*/
 int **alocaMemoria(int linha, int coluna){
     int **aux,i; /*Variavel auxiliar*/
     aux = (int **) malloc(linha*sizeof(int *));
@@ -55,14 +49,14 @@ int **alocaMemoria(int linha, int coluna){
         for (i=0;i<linha;i++){
             aux[i] = (int *) calloc(coluna,sizeof(int));
         if(aux[i]==NULL){
-            printf("Memória Insuficiente.");
+            printf("MemÃ³ria Insuficiente.");
             exit(1);
         }
     }
 }
 
     else{
-        printf("Memória Insuficiente.");
+        printf("MemÃ³ria Insuficiente.");
         exit(1);
     }
 return(aux);
@@ -91,22 +85,12 @@ int **multiplicaMatriz(int linha1, int linha2, int coluna1, int coluna2, int **m
         }
     }
 }
+printf("%d", matriz3[k][j]);
 return(matriz3);
 }
 
-/*
-função de teste para imprimir a matriz
-int escreve(int lin, int col, int **m){
-int i,j; //Variaveis auxiliares
-for (i=0;i<lin;i++){
-for(j=0;j<col;j++){
-printf("%d\t ",m[i][j]);
-}
-printf("\n");
-}
-}*/
 
-/*Libera memória*/
+/*Libera memÃ³ria*/
 int **liberaMemoria(int linha, int **matriz){
     int i; /*Variavel auxiliar*/
     if(matriz==NULL){
