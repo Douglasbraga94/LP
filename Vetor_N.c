@@ -7,24 +7,13 @@ int ElevaQuadrado(int* p, int num);
 double CalculaSoma(int* p, int num);
 
 
-int main(void){
+int main(){
     int* p;
-    int num=0, c;
+    int num, c;
     char ch;
-    double soma, tempoexecucao;
-    clock_t tempoinicial, tempofinal;
+    double soma;
 
-/*    printf("\nInforme o tamanho para o vetor: ");
-      scanf("%d%c",&num,&ch);
-      if(num <=0){
-        printf("\nValor invalido!!!\n");
-        system("pause");
-        exit(0);
-    }*/
-
-    /*NUM FIXO PARA TESTAR O TEMPO DE EXECUÇÃO PELO PROPRIO WINDOWS, POIS NÃO ACHEI UMA FUNÇÃO QUE 
-    PEGUE O TEMPO EM MILISSEGUNDOS*/
-    num=1000;
+    num=100;
 
     p=(int *)malloc(num*sizeof(int));
     if(!p){
@@ -35,22 +24,16 @@ int main(void){
 
 
     num=preencher(p, num);
-    tempoinicial=clock();
     num=ElevaQuadrado(p, num);
     soma= CalculaSoma(p, num);
-    tempofinal=clock();
 
-    for(c=0;c<num;c++){
-        printf("%d\n", p[c]);
-    }
-    //tempoexecucao=(tempofinal-tempoinicial)/CLOCKS_PER_SEC;
     printf("%lf\n", soma);
-    //printf("%lf", ((double)(tempofinal-tempoinicial)/CLOCKS_PER_SEC));
-    //system("pause");
 
     free(p);
     return 0;
 }
+
+//////////////////////////////////////////////////////////////////////////////////q
 
 int preencher(int* p, int num){
     int c;
