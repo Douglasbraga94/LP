@@ -1,6 +1,4 @@
 #include <stdlib.h>
-#include <stdio.h>
-#include <time.h>
 
 int **alocaMemoria(int linha, int coluna);
 int preencheMatriz(int linha, int coluna, int **matriz);
@@ -14,7 +12,7 @@ int main (){
     int linha1,linha2,coluna1,coluna2;
 
 
-    linha1=linha2=coluna1=coluna2=2000;
+    linha1=linha2=coluna1=coluna2=100;
 
 
     /*Aloca-Preenche matrizes.*/
@@ -85,10 +83,8 @@ int **multiplicaMatriz(int linha1, int linha2, int coluna1, int coluna2, int **m
         }
     }
 }
-printf("%d", matriz3[k][j]);
 return(matriz3);
 }
-
 
 /*Libera memória*/
 int **liberaMemoria(int linha, int **matriz){
